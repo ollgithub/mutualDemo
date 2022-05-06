@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Mutual</string>
+
+    <item name="t1" type="id" />
+    <item name="t2" type="id" />
+    <item name="t3" type="id" />
+
+    <style name="Theme">
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>
