@@ -43,7 +43,7 @@ class Frame {
         mainPaint.clearShadowLayer()
     }
 
-    var debug = true
+    var debug = false
 
     val lastSpaceInfo = SpaceInfo()
 
@@ -110,7 +110,7 @@ class Frame {
         }
     }
 
-    fun drawCircle(){
+    fun drawCircle() {
         currSpaceInfo.run {
             mainPaint.strokeWidth = 10f
             mainPaint.style = Paint.Style.FILL

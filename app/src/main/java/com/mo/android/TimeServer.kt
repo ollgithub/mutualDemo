@@ -9,18 +9,28 @@ object TimeServer {
 
     val SECOND_MS = 1000
 
-    fun formatFileModifiedTime(lastModified: Long): String {
-        if (lastModified < 0) {
+    fun formatYMD(time: Long): String {
+        if (time < 0) {
             return ""
         }
         val now = System.currentTimeMillis()
         val dateFormat = SimpleDateFormat()
-        if ((now - lastModified) / SECOND_MS > 365 * ONE_DAY_SECOND) {
+        if ((now - time) / SECOND_MS > 365 * ONE_DAY_SECOND) {
             dateFormat.applyPattern("yyyy年M月d日")
         } else {
             dateFormat.applyPattern("M月d日")
         }
-        return dateFormat.format(Date(lastModified))
+        return dateFormat.format(Date(time))
+    }
+
+    fun formatHMS(time: Long): String {
+        if (time < 0) {
+            return ""
+        }
+        val dateFormat = SimpleDateFormat()
+        dateFormat.applyPattern("HH∶mm∶ss")
+
+        return dateFormat.format(Date(time))
     }
 
     fun getTimeDays(time: Long): Long {

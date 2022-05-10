@@ -1,8 +1,8 @@
-package com.mo.qin
+package com.mo.app
 
 import android.graphics.Bitmap
-import com.mo.*
-import com.mo.android.rBitmap
+import com.mo.R
+import com.mo.android.assist.bitmap
 import com.mo.core.Entity
 import com.mo.mutual.Mutual
 import com.mo.mutual.layout.space.Space
@@ -10,7 +10,7 @@ import com.mo.mutual.layout.space.Space
 
 class TestEntity : Entity {
 
-    private var background: Bitmap = R.drawable.background.rBitmap()
+    private var background: Bitmap = R.drawable.background.bitmap()
 
     override val mutual: Mutual = Space {
         // 以下声明14ms

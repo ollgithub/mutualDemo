@@ -8,7 +8,7 @@ import android.opengl.Matrix
 import android.util.Log
 import androidx.core.graphics.scale
 import com.mo.R
-import com.mo.android.rBitmap
+import com.mo.android.assist.bitmap
 import com.mo.android.gl.RendererManager.Companion.checkError
 import com.mo.android.gl.RendererManager.Companion.loadShader
 import java.nio.ByteBuffer
@@ -138,7 +138,7 @@ void main() {
 
     }
 
-    val b = R.drawable.background.rBitmap().scale(1080, 2400, true)
+    val b = R.drawable.background.bitmap().scale(1080, 2400, true)
 
     fun imagePre() {
         GLES20.glGenTextures(2, texNames, 0)

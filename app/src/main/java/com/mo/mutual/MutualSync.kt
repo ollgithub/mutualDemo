@@ -1,8 +1,9 @@
 package com.mo.mutual
 
+import android.graphics.PointF
 import com.mo.android.StackTrace
 import com.mo.base.Color
-import com.mo.frame.core.Orbit
+import com.mo.core.Orbit
 import com.mo.i
 import com.mo.process
 import kotlin.reflect.KProperty
@@ -51,6 +52,17 @@ class MutualSync<T>(
                     b.green = process(b.green, a.green, process)
                     b.blue = process(b.blue, a.blue, process)
                     orbitValue = b.color() as T
+                    notifyUpdate()
+                }
+            }
+            (orbitValue is PointF) -> {
+                { process: Float, end: T? ->
+                    val value = orbitValue as PointF
+                    val end = end as PointF
+                    orbitValue = PointF(
+                        process(value.x, end.x, process),
+                        process(value.y, end.y, process)
+                    ) as T
                     notifyUpdate()
                 }
             }

@@ -1,6 +1,5 @@
 package com.mo
 
-import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.Rect
 import android.graphics.RectF
@@ -22,18 +21,6 @@ import java.util.*
 object Dev {
     var lastMarkTime = 0L
     val debug: Boolean? = true
-    var debugInfo = StringBuilder("")
-
-    var onText: ((String) -> Boolean)? = null
-
-    fun add(info: String) {
-        debugInfo.appendln(info)
-        if (debugInfo.length > 2000) {
-            debugInfo.delete(0, 100)
-        }
-        i(debugInfo.toString())
-        onText?.invoke(debugInfo.toString())
-    }
 }
 
 data class Stack(
@@ -48,13 +35,6 @@ inline val Int.f: Float get() = this.toFloat()
 
 inline val Float.i: Int get() = this.toInt()
 
-
-fun Cursor.getContent(goal: String): String {
-    return this.getString(getColumnIndex(goal)) ?: let {
-//        //  e("cursor getContent empty , the goal = $goal")
-        ""
-    }
-}
 
 inline fun Int.flag(shlNum: Int) = this or (1 shl shlNum)
 
@@ -75,12 +55,6 @@ fun markTime() {
         "<$methodName> time = ${Date(time)} $time ms = ${time % 100} (since last mark = ${time - lastMarkTime})"
     )
     lastMarkTime = time
-}
-
-inline infix fun Int.nfor(function: (Int) -> Unit) {
-    for (i in 1..this) {
-        function.invoke(i)
-    }
 }
 
 inline fun <T> runCatchingPrint(function: () -> T): T? {
@@ -144,10 +118,6 @@ fun getCallPosition(): StackTraceElement {
 }
 
 fun getConsumingTime(startTime: Long) = System.currentTimeMillis() - startTime
-
-fun addDebug(info: String) {
-    Dev.add(info)
-}
 
 fun <T> runAsyncNull(runn: () -> Unit): T? {
     runAsync(function = runn)

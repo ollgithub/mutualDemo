@@ -1,16 +1,15 @@
 package com.mo.mutual.layout
 
 import com.mo.android.StackTrace
-import com.mo.android.assist.tracing
 import com.mo.android.assist.traceBegin
 import com.mo.android.assist.traceEnd
+import com.mo.android.assist.tracing
 import com.mo.d
 import com.mo.index
 import com.mo.mutual.Mutual
-import com.mo.nfor
 
 /**
- * 只有layout有折玩意
+ * 只有layout有这玩意
  * 1 负责提供声明环境
  * 2 构建声明列表
  * 3 更新维护mutual列表
@@ -95,7 +94,7 @@ abstract class LayoutScope(val layout: Layout) {
     }
 
     fun endDeclare() {
-        (baseContents.size - declareCursor).nfor {
+        repeat(baseContents.size - declareCursor) {
             baseContents.removeAt(declareCursor)
         }
         declareCursor = 0

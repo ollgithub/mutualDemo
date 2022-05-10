@@ -1,9 +1,9 @@
 package com.mo.mutual
 
 import com.mo.base.SpaceInfo
+import com.mo.core.Orbit
 import com.mo.d
 import com.mo.e
-import com.mo.frame.core.Orbit
 import com.mo.process
 
 class OrbitSpaceInfo(
@@ -33,7 +33,7 @@ class OrbitSpaceInfo(
         if (end.equals(this)) return
         e("ooooooo buildOrbit $this")
         end.set(this)
-        orbit.change(1f, 350)
+//        orbit.change(1f, 350)
 
     }
 
@@ -44,8 +44,8 @@ class OrbitSpaceInfo(
             changing.set(
                 process(changing.x, end.x, currentV),
                 process(changing.y, end.y, currentV),
-               end.w,
-              end.h
+                end.w,
+                end.h
             )
         } else this
     }

@@ -4,7 +4,6 @@ import android.view.MotionEvent
 import com.mo.base.Color
 import com.mo.base.XY
 import com.mo.flag
-import com.mo.flagHas
 import com.mo.i
 import com.mo.mutual.ability.IInputProcessor
 import com.mo.mutual.ability.IPainter
@@ -15,6 +14,7 @@ import com.mo.mutual.input.Action
 import com.mo.mutual.input.InputProcessor
 import com.mo.mutual.layout.Layout
 import com.mo.mutual.layout.transform.Transform
+import com.mo.mutual.orbit.TimerOrbit
 import com.mo.mutual.shader.ColorShader
 import com.mo.mutual.shader.Shader
 import com.mo.packHashCode
@@ -39,7 +39,7 @@ abstract class Mutual : ISizeRule, IPainter, IInputProcessor {
      */
     fun relayout() {
 
-        if (flag.flagHas(RELAYOUT_SHL)) return
+//        if (flag.flagHas(RELAYOUT_SHL)) return
         flag = flag.flag(RELAYOUT_SHL)
 
         containerLayout?.relayoutContent()
@@ -203,6 +203,16 @@ abstract class Mutual : ISizeRule, IPainter, IInputProcessor {
         onLivingDoo = doo
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    private var orbit: Any? = null
+
+    fun orbit(orbitItem: Any) = apply {
+        if (orbit != null) return@apply
+        orbit = orbitItem
+        if (orbitItem is TimerOrbit) {
+            orbitItem.start()
+        }
+    }
 }
 
 

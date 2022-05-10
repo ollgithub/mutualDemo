@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#DD2B2B2B</color>
+    <color name="text_shadow">#DD2B2B2B</color>
+    <color name="background_start">#ff00FFEA</color>
+    <color name="background_end">#ffFF53ED</color>
+
 
 </resources>

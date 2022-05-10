@@ -1,4 +1,4 @@
-package com.mo.qin
+package com.mo.app
 
 import android.graphics.PointF
 import com.mo.base.Color

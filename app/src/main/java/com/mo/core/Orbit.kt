@@ -1,7 +1,6 @@
-package com.mo.frame.core
+package com.mo.core
 
 import android.view.animation.PathInterpolator
-import com.mo.core.OrbitCore
 import com.mo.currentTime
 import kotlin.math.min
 
